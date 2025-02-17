@@ -1,0 +1,5 @@
+features for the calculator gui app I am tryna make:\
+1. base funde
+    a. involve basic arithmetic (add, substract, multiply and divide)
+    b. should have interactable graphical buttons.
+    c. just a basic terminal based calculator bhi chalega.
