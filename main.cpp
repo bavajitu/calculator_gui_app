@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <cmath>
 
 using namespace std;
 
@@ -11,10 +12,44 @@ void showMenu() {
     std::cout << "5. square (^2)\n";
     std::cout << "6. square root(√)\n";
     std::cout << "7. Logarithmic function\n";
+    std::cout << "8. Solve a quadratic equation\n";
 }
+
+void solveQuadratic() {
+    double x, y, z;
+        std::cout << "Enter the coefficient of x^2: " << std::endl;
+        cin >> x;
+        std::cout << "Enter the coefficient of x: " << std::endl;
+        cin >> y;
+        std::cout << "Enter the Constant term: "<< std::endl;
+        cin >> z;
+    if(x == 0) {
+        std::cout << "Sorry man, but this shit ain't no quadratic!" << '\n' << std::endl;
+    };
+    double D = (y * y) - (4 * x * z);
+
+    if(D < 0) {
+        std::cout << "The given quadratic doesn't have any real roots" << '\n' << std::endl;
+    }
+
+    if(D == 0) {
+        double root1 = (-y + sqrt(D)) / (2 * x);
+        std::cout << "Roots are real and equal in value" << std::endl;
+        std::cout << "First Root = Second Root = " << root1 << '\n' << std::endl;
+    }
+    
+    if(D > 0) {
+        double root1 = (-y + sqrt(D)) / (2 * x);
+        double root2 = (-y - sqrt(D)) / (2 * x);
+        std::cout << "Roots are real and Distinct\n" << std::endl;
+        std::cout << "First Root: " << root1 << '\n' << std::endl;
+        std::cout << "Second Root: " << root2 << '\n' << std::endl;
+    }
+}
+
 int main () {
     int op;
-    double a, b;
+    double a, b; // Where a and b are inputs and x, y and z are the coefficients of x squared, x and then the constant respectively
     std::optional<double> result;
 
     while(true) {
@@ -30,7 +65,11 @@ int main () {
         cin >> a;
         std::cout << "Enter the base: ";;
         cin >> b;
-    } else {
+    } else if(op == 8) {
+        solveQuadratic();
+    } 
+    
+    else {
     std::cout << "Enter two numbers: ";
     cin >> a >> b;
     }
@@ -70,6 +109,10 @@ int main () {
                 std::cout << "The result of the given logarithmic function is: " << std::log(a) / std::log(b) << '\n'; 
             }
            break; 
+        case 8:
+            solveQuadratic();
+           break;
+
         default:
             std::cout << "ERROR! The operator used isn't correct.\n ";
 
